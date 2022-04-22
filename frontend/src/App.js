@@ -1,5 +1,5 @@
 import { Container } from 'react-bootstrap';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter, BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -8,16 +8,18 @@ import ProductPage from './pages/ProductPage';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Header ></Header>
       <main>
         <Container>
-          <Route exact path='/' component={HomePage}></Route>   
-          <Route path='/product/:id' component={ProductPage}></Route>    
+         <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/product/:id" element={<ProductPage />} />
+         </Routes>
         </Container>
       </main>
       <Footer ></Footer>
-    </Router>
+    </BrowserRouter>
   );
 }
 
